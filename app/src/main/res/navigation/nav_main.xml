@@ -1,0 +1,96 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/nav_main"
+    app:startDestination="@id/homeFragment">
+
+    <fragment
+        android:id="@+id/homeFragment"
+        android:name="com.example.navigationcomponenetpractice.Fragments.HomeFragment"
+        android:label="Home"
+        tools:layout="@layout/fragment_home">
+
+
+        <action
+            android:id="@+id/action_homeFragment_to_viewTransactionFragment"
+            app:destination="@id/viewTransactionFragment" />
+        <action
+            android:id="@+id/action_homeFragment_to_viewBalanceFragment"
+            app:destination="@id/viewBalanceFragment" />
+        <action
+            android:id="@+id/action_homeFragment_to_senderFragment3"
+            app:destination="@id/senderFragment" />
+
+    </fragment>
+    <fragment
+        android:id="@+id/viewTransactionFragment"
+        android:name="com.example.navigationcomponenetpractice.Fragments.ViewTransactionFragment"
+        android:label="Transaction"
+        tools:layout="@layout/fragment_view_transaction" />
+    <fragment
+        android:id="@+id/viewBalanceFragment"
+        android:name="com.example.navigationcomponenetpractice.Fragments.ViewBalanceFragment"
+        android:label="Balance"
+        tools:layout="@layout/fragment_viewbalance" />
+    <fragment
+        android:id="@+id/senderFragment"
+        android:name="com.example.navigationcomponenetpractice.Fragments.SenderFragment"
+        android:label="Send Money to"
+        tools:layout="@layout/fragment_sender">
+        <action
+            android:id="@+id/action_senderFragment_to_sendMoneyFragment2"
+            app:destination="@id/sendMoneyFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/sendMoneyFragment"
+        android:name="com.example.navigationcomponenetpractice.Fragments.SendMoneyFragment"
+        android:label="Send To {name}"
+        tools:layout="@layout/fragment_send_money">
+        <argument
+            android:name="name"
+            app:argType="string" />
+        <action
+            android:id="@+id/action_sendMoneyFragment_to_dialogueFragment"
+            app:destination="@id/dialogueFragment" />
+        <action
+            android:id="@+id/action_sendMoneyFragment_to_homeFragment"
+            app:destination="@id/homeFragment"
+            app:popUpTo="@id/homeFragment"
+            app:popUpToInclusive="true" />
+        <deepLink
+            android:id="@+id/deepLink"
+            app:uri="www.navpractice.com/{name}" />
+    </fragment>
+    <dialog
+        android:id="@+id/dialogueFragment"
+        android:name="com.example.navigationcomponenetpractice.Fragments.DialogueFragment"
+        android:label="fragment_dialogue"
+        tools:layout="@layout/fragment_dialogue">
+        <argument
+            android:name="name"
+            app:argType="string" />
+        <argument
+            android:name="amount"
+            app:argType="long" />
+    </dialog>
+    <fragment
+        android:id="@+id/settingFragment2"
+        android:name="com.example.navigationcomponenetpractice.Fragments.SettingFragment"
+        android:label="Setting"
+        tools:layout="@layout/fragment_setting" />
+    <fragment
+        android:id="@+id/aboutAppFragment"
+        android:name="com.example.navigationcomponenetpractice.AboutAppFragment"
+        android:label="About App"
+        tools:layout="@layout/fragment_about_app" />
+    <action
+        android:id="@+id/action_global_aboutAppFragment"
+        app:destination="@id/aboutAppFragment" />
+    <fragment
+        android:id="@+id/notificationFragment"
+        android:name="com.example.navigationcomponenetpractice.Fragments.NotificationFragment"
+        android:label="Notifications"
+        tools:layout="@layout/fragment_notification" />
+
+</navigation>
